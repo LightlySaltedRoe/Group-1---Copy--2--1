@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaction History</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      position: fixed;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar .nav-item {
+      width: 100%;
+      padding: 10px 20px;
+    }
+
+    .sidebar .nav-link {
+      color: white;
+      text-align: left;
+      display: block;
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    .sidebar .nav-link.active {
+      background-color: #495057;
+    }
+
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    .card table {
+      width: 100%;
+      margin-bottom: 0;
+      border-collapse: collapse;
+    }
+
+    .card th, .card td {
+      text-align: left;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .card th {
+      background-color: #f0f0f0;
+    }
+
+    .card td:last-child {
+      text-align: right;
+    }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
+    .back-link {
+      margin-bottom: 20px;
+    }
+
+    .back-link a {
+      color: #66b2ff;
+      text-decoration: none;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="content">
+    <div class="back-link">
+      <a href="home.html">&lt; Back to Homepage</a>
+    </div>
+    <div class="card">
+      <h2>Transaction History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Amount Sent</th>
+            <th>Received</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>johnny papa</td>
+            <td>James</td>
+            <td>10 SGD</td>
+            <td>10 SGD</td>
+          </tr>
+          <tr>
+            <td>Zach</td>
+            <td>Lauren</td>
+            <td>10.50 SGD</td>
+            <td>31.50 Rm</td>
+          </tr>
+          <tr>
+            <td>Serr</td>
+            <td>Ed</td>
+            <td>18 Rm</td>
+            <td>6 SGD</td>
+          </tr>
+          <tr>
+            <td>Alex</td>
+            <td>Rita</td>
+            <td>50 SGD</td>
+            <td>50 SGD</td>
+          </tr>
+          <tr>
+            <td>John</td>
+            <td>Emma</td>
+            <td>25 USD</td>
+            <td>22 EUR</td>
+          </tr>
+          <tr>
+            <td>Sarah</td>
+            <td>Tom</td>
+            <td>40 EUR</td>
+            <td>45 USD</td>
+          </tr>
+          <tr>
+            <td>Mike</td>
+            <td>Laura</td>
+            <td>15 SGD</td>
+            <td>14 SGD</td>
+          </tr>
+          <tr>
+            <td>Anna</td>
+            <td>Bob</td>
+            <td>100 USD</td>
+            <td>90 EUR</td>
+          </tr>
+          <tr>
+            <td>James</td>
+            <td>Lisa</td>
+            <td>75 USD</td>
+            <td>65 EUR</td>
+          </tr>
+          <tr>
+            <td>Emily</td>
+            <td>Robert</td>
+            <td>60 EUR</td>
+            <td>70 USD</td>
+          </tr>
+          <tr>
+            <td>Oliver</td>
+            <td>Alice</td>
+            <td>80 SGD</td>
+            <td>75 SGD</td>
+          </tr>
+          <tr>
+            <td>Daniel</td>
+            <td>Grace</td>
+            <td>20 USD</td>
+            <td>18 EUR</td>
+          </tr>
+          <tr>
+            <td>Laura</td>
+            <td>Mike</td>
+            <td>30 SGD</td>
+            <td>28 SGD</td>
+          </tr>
+          <tr>
+            <td>Chris</td>
+            <td>Rachel</td>
+            <td>45 USD</td>
+            <td>40 EUR</td>
+          </tr>
+          <tr>
+            <td>Isabella</td>
+            <td>George</td>
+            <td>25 SGD</td>
+            <td>24 SGD</td>
+          </tr>
+          <tr>
+            <td>David</td>
+            <td>Jessica</td>
+            <td>90 USD</td>
+            <td>85 EUR</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

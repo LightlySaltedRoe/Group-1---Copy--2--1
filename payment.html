@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container-custom {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #003399;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .balance-container,
+        .transaction-container {
+            margin-top: 20px;
+        }
+
+        .transaction-container .btn {
+            background-color: #33cc33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container container-custom">
+        <div class="header">
+            <h1>Travel Concierge</h1>
+        </div>
+        <div class="balance-container">
+            <h2>E-Wallet Balance</h2>
+            <p id="balance">Balance: $0.00</p>
+            <div class="transaction-container">
+                <input type="number" id="depositAmount" class="form-control" placeholder="Enter deposit amount">
+                <button onclick="deposit()" class="btn">Deposit</button>
+            </div>
+        </div>
+        <div class="transaction-container">
+            <h2>Converted Currency</h2>
+            <p id="convertedCurrency"></p>
+            <p id="convertedAmount"></p>
+            <button onclick="deduct()" class="btn">Deduct from Balance</button>
+        </div>
+    </div>
+
+    <script>
+        let balance = parseFloat(localStorage.getItem('balance')) || 0;
+
+        function updateBalance() {
+            document.getElementById('balance').textContent = `Balance: $${balance.toFixed(2)}`;
+        }
+
+        function deposit() {
+            const depositAmount = parseFloat(document.getElementById('depositAmount').value);
+            if (isNaN(depositAmount) || depositAmount <= 0) {
+                alert('Please enter a valid amount.');
+                return;
+            }
+            balance += depositAmount;
+            localStorage.setItem('balance', balance);
+            updateBalance();
+            document.getElementById('depositAmount').value = '';
+        }
+
+        function deduct() {
+            const convertedAmount = parseFloat(localStorage.getItem('convertedAmount'));
+            if (balance >= convertedAmount) {
+                balance -= convertedAmount;
+                localStorage.setItem('balance', balance);
+                updateBalance();
+                alert('Transaction successful!');
+            } else {
+                alert('Insufficient balance.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('convertedCurrency').textContent = `Converted Currency: ${localStorage.getItem('convertedCurrency')}`;
+            document.getElementById('convertedAmount').textContent = `Converted Amount: $${localStorage.getItem('convertedAmount')}`;
+            updateBalance();
+        });
+    </script>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

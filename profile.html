@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-header {
+            background-color: #244974;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .profile-header img {
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile-header h2 {
+            margin: 0;
+        }
+
+        .profile-header span {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .profile-header .edit-profile {
+            margin-top: 20px;
+            background-color: white;
+            color: #4a90e2;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .profile-section {
+            padding: 20px;
+        }
+
+        .profile-section .list-group-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .profile-section .list-group-item i {
+            margin-right: 15px;
+            font-size: 24px;
+            color: #4a90e2;
+        }
+
+        .profile-section .collapse .card-body {
+            padding: 20px;
+        }
+
+        .profile-section .form-group {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="gareth.jpg" alt="Profile Picture">
+            <h2>Gareth Southgate</h2>
+            <span>ID: 524687975</span>
+            <br>
+            <button class="edit-profile">Edit Profile</button>
+        </div>
+        <div class="profile-section">
+            <ul class="list-group">
+                <li class="list-group-item" data-toggle="collapse" data-target="#passwordCollapse" aria-expanded="false" aria-controls="passwordCollapse">
+                    <div><i class="fas fa-lock"></i>Password</div>
+                    <div>&gt;</div>
+                </li>
+                <div class="collapse" id="passwordCollapse">
+                    <div class="card card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </form>
+                    </div>
+                </div>
+
+                <li class="list-group-item" data-toggle="collapse" data-target="#emailCollapse" aria-expanded="false" aria-controls="emailCollapse">
+                    <div><i class="fas fa-envelope"></i>Email Address</div>
+                    <div>&gt;</div>
+                </li>
+                <div class="collapse" id="emailCollapse">
+                    <div class="card card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="currentEmail">Current Email Address</label>
+                                <input type="email" class="form-control" id="currentEmail" placeholder="Enter current email">
+                            </div>
+                            <div class="form-group">
+                                <label for="newEmail">New Email Address</label>
+                                <input type="email" class="form-control" id="newEmail" placeholder="Enter new email">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Email</button>
+                        </form>
+                    </div>
+                </div>
+
+                <li class="list-group-item" data-toggle="collapse" data-target="#cardCollapse" aria-expanded="false" aria-controls="cardCollapse">
+                    <div><i class="fas fa-credit-card"></i>Card Details</div>
+                    <div>&gt;</div>
+                </li>
+                <div class="collapse" id="cardCollapse">
+                    <div class="card card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+                            </div>
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date</label>
+                                <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" class="form-control" id="cvv" placeholder="Enter CVV">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Card Details</button>
+                        </form>
+                    </div>
+                </div>
+
+                <li class="list-group-item" data-toggle="collapse" data-target="#supportCollapse" aria-expanded="false" aria-controls="supportCollapse">
+                    <div><i class="fas fa-headset"></i>Support</div>
+                    <div>&gt;</div>
+                </li>
+                <div class="collapse" id="supportCollapse">
+                    <div class="card card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="supportIssue">Describe your issue</label>
+                                <textarea class="form-control" id="supportIssue" rows="3" placeholder="Describe your issue"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Issue</button>
+                        </form>
+                    </div>
+                </div>
+
+                <li class="list-group-item">
+                    <a href="login.html" class="d-flex align-items-center text-decoration-none">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="ml-2">Sign Out</span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="home.html" class="d-flex align-items-center text-decoration-none">
+                        <i class="fas fa-home"></i>
+                        <span class="ml-2">Back to Home</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6-beta.14/jquery.inputmask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#cardNumber').inputmask("9999 9999 9999 9999");
+            $('#expiryDate').inputmask("99/99");
+            $('#cvv').inputmask("999");
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh; /* Use full viewport height */
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+      margin: 0; /* Remove default margin */
+    }
+    .grey-bar {
+      background-color: #e9ecef;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .otp-form {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px; /* Adjust margin to create space below the grey bar */
+      text-align: center;
+    }
+    .otp-input {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+    .btn-verify, .btn-resend {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .btn-verify:hover, .btn-resend:hover {
+      background-color: #0056b3;
+    }
+    .btn-resend[disabled] {
+      background-color: #6c757d;
+      cursor: not-allowed;
+    }
+    .error {
+      color: red;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grey Bar -->
+  <div class="grey-bar">
+    <h2>OTP Verification</h2>
+  </div>
+
+  <!-- OTP Verification Form -->
+  <div class="otp-form">
+    <form id="otpForm">
+      <div>
+        <input type="text" maxlength="1" class="otp-input" id="otp1" required>
+        <input type="text" maxlength="1" class="otp-input" id="otp2" required>
+        <input type="text" maxlength="1" class="otp-input" id="otp3" required>
+        <input type="text" maxlength="1" class="otp-input" id="otp4" required>
+        <input type="text" maxlength="1" class="otp-input" id="otp5" required>
+        <input type="text" maxlength="1" class="otp-input" id="otp6" required>
+      </div>
+      <div class="error" id="otpError">Invalid OTP. Please try again.</div>
+      <button type="submit" class="btn btn-verify">Verify OTP</button>
+    </form>
+    <button class="btn btn-resend" id="resendButton" onclick="startResendCounter()">Resend OTP</button>
+    <p id="counter" style="display: none;">Please wait <span id="countdown">30</span> seconds to resend.</p>
+  </div>
+
+  <!-- OTP Verification Script -->
+  <script>
+    document.getElementById('otpForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var enteredOTP = [
+        document.getElementById('otp1').value.trim(),
+        document.getElementById('otp2').value.trim(),
+        document.getElementById('otp3').value.trim(),
+        document.getElementById('otp4').value.trim(),
+        document.getElementById('otp5').value.trim(),
+        document.getElementById('otp6').value.trim()
+      ].join('');
+      var otpError = document.getElementById('otpError');
+      
+      // Mocking OTP validation (replace with actual logic)
+      var generatedOTP = '123456'; // Mocking the OTP sent to the user's device
+
+      if (enteredOTP === generatedOTP) {
+        window.location.href = 'home.html'; // Redirect to home page
+      } else {
+        otpError.style.display = 'block';
+      }
+    });
+
+    function startResendCounter() {
+      var countdownElement = document.getElementById('countdown');
+      var counterElement = document.getElementById('counter');
+      var resendButton = document.getElementById('resendButton');
+      var timeLeft = 30;
+
+      resendButton.disabled = true;
+      counterElement.style.display = 'block';
+
+      var countdownTimer = setInterval(function() {
+        if (timeLeft <= 0) {
+          clearInterval(countdownTimer);
+          resendButton.disabled = false;
+          counterElement.style.display = 'none';
+        } else {
+          countdownElement.textContent = timeLeft;
+          timeLeft -= 1;
+        }
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
